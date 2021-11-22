@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 unsigned int reverseBits(unsigned int num)
 {
 	unsigned int count = sizeof(num) * 8 - 1;
@@ -19,6 +19,7 @@ unsigned int reverseBits(unsigned int num)
 int main()
 {
 	unsigned int x;
-	scanf("%u", &x);
-	printf("%u", reverseBits(x));
+	cout<<"Enter a no. \n";
+	cin>>x;
+	cout<<reverseBits(x);
 }
