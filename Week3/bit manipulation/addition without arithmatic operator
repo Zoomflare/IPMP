@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+
+int Add(int x, int y)
+{
+
+    while (y != 0)
+    {
+
+        unsigned carry = x & y;
+
+        x = x ^ y;
+
+
+        y = carry << 1;
+    }
+    return x;
+}
+
+int main()
+{
+   int a,b,c;
+
+   cout<<"Enter 2 nos. \n";
+   cin>>a>>b;
+   c=Add(a,b);
+   cout<<"a+b="<<c;
+
+    return 0;
+}
