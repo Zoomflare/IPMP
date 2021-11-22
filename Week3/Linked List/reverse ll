@@ -1,0 +1,50 @@
+#include<iostream>
+ 2  
+ 3  using namespace std;
+ 4  
+ 5  
+ 6  struct node
+ 7  {
+ 8  int data;
+ 9  struct node *link;
+10  };
+11  
+12  void push(struct node *head, int x)
+13  {
+14  
+15    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+16    newNode->data = x;
+17    newNode->link=head;
+18    head = newNode;
+19  }
+20  
+21  void reverse(struct node *head)
+22  { struct node *prev, *next, *cur;
+23  prev = NULL;
+24  next = cur = head;
+25  
+26  while(next!=0)
+27  {
+28      next=next->link;
+29      cur->link=prev;
+30  
+31      prev = cur;
+32      cur = next;
+33  }
+34  head = prev;
+35  
+36  }
+37  
+38  int main()
+39  { struct node * head;
+40  head = NULL;
+41  
+42  
+43  push(head,20);
+44  push(head,5);
+45  push(head,65);
+46  reverse(head);
+47  
+48  return 0;
+49  
+50  }
