@@ -1,0 +1,105 @@
+  1 #include<iostream>
+  2  
+  3  using namespace std;
+  4  
+  5  
+  6  struct node
+  7  {
+  8  int data;
+  9  struct node *next;
+ 10  } *head;
+ 11  
+ 12  void initialize()
+ 13  {
+ 14  head = NULL;
+ 15  }
+ 16  
+ 17  
+ 18  void insert(int num)
+ 19  {
+ 20  struct node* newNode = (struct node*) malloc(sizeof(struct node));
+ 21  newNode->data = num;
+ 22  newNode->next = head;
+ 23  head = newNode;
+ 24  }
+ 25  
+ 26  
+ 27  int getLength(struct node *head)
+ 28  {
+ 29  if (head == NULL)
+ 30  {
+ 31  cout << "\nError : Invalid node pointer !!!\n";
+ 32  return 0;
+ 33  }
+ 34  
+ 35  int length =0;
+ 36  while(head != NULL)
+ 37  {
+ 38  head = head->next;
+ 39  length++;
+ 40  }
+ 41  return length;
+ 42  }
+ 43  
+ 44  
+ 45  struct node* getNthLastNode(struct node* head, int n)
+ 46  {
+ 47  struct node *front, *back;
+ 48  int i;
+ 49  front = back = head;
+ 50  if(n > getLength(head))
+ 51  {
+ 52  cout << "\nError : n is greater than length of Linked List\n";
+ 53  return NULL;
+ 54  }
+ 55  for(i = 0; i < n-1; i++)
+ 56  {
+ 57  front = front->next;
+ 58  }
+ 59  
+ 60  while(front->next != NULL)
+ 61  {
+ 62  front = front->next;
+ 63  back = back->next;
+ 64  }
+ 65  
+ 66  return back;
+ 67  }
+ 68  
+ 69  
+ 70  void printLinkedList(struct node *nodePtr)
+ 71  {
+ 72  while (nodePtr != NULL)
+ 73  {
+ 74  cout << nodePtr->data << " ";
+ 75  nodePtr = nodePtr->next;
+ 76  if(nodePtr != NULL)
+ 77  cout << "â€“>";
+ 78  }
+ 79  }
+ 80  
+ 81  int main()
+ 82  {
+ 83  int N, k;
+ 84  struct node *NthNode;
+ 85  initialize();
+ 86  
+ 87  int new_node;
+ 88  int i;
+ 89  cout << "\nEnter the total number of nodes : ";
+ 90  cin >> k;
+ 91  cout << "\nEnter the data for the nodes : ";
+ 92  for(i = 0; i < k; i++)
+ 93  {
+ 94  cin >> new_node;
+ 95  insert(new_node);
+ 96  }
+ 97  
+ 98  cout << "\nLinked List : ";
+ 99  printLinkedList(head);
+100  cout << "\n\nEnter value of N : ";
+101  cin >> N;
+102  NthNode = getNthLastNode(head, N);
+103  cout << "\nNth Last node is " << NthNode->data << endl;
+104  return 0;
+105  }
