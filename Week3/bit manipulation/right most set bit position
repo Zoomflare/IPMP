@@ -1,0 +1,20 @@
+#include <math.h>
+#include <iostream>
+using namespace std;
+ 
+unsigned int GFSB(int n)
+{
+    return log2(n & -n) + 1;
+}
+ 
+int main()
+{
+    int n;
+    
+    cout<<"Enter a number \n";
+    cin>>n;
+    cout<<"The right most set bit position is ";
+    cout<< GFSB(n);
+    
+    return 0;
+}
