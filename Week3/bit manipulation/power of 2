@@ -1,0 +1,25 @@
+#include <iostream>
+ 2  
+ 3  using namespace std;
+ 4  
+ 5  
+ 6  bool powerOfTwo(int x)
+ 7  {   if(x==0)
+ 8  return 0;
+ 9      while(x!=1)
+10      {
+11          if(x%2!=0)
+12              return 0;
+13          x= x/2;
+14      }
+15      return 1;
+16  }
+17  
+18  int main()
+19  {   int n;
+20      cout << "enter number" << endl;
+21      cin>>n;
+22      cout<<"Is "<<n<<" power of 2 ";
+23      powerOfTwo(n)?cout<<"True ":cout<<"False ";
+24      return 0;
+25  }
