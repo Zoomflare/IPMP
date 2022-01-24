@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+
+int nCr(int n, int r)
+{
+    if(r>n-r)
+        r=n-r;
+
+    int res=1;
+
+    for(int i=0;i<r;i++)
+    {
+        res*=(n-i);
+        res/=(i+1);
+    }
+
+    return res;
+
+
+}
+int main()
+{
+   int n,r;
+
+   cout<<"Enter n and r\n";
+   cin>>n>>r;
+   cout<<n<<"C"<<r<<" = "<<nCr(n,r);
+
+
+    return 0;
+}
