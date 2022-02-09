@@ -1,0 +1,102 @@
+#include <iostream>
+
+using namespace std;
+
+
+void uniont(int a[],int b[],int m,int n)
+{
+    int i=0;
+    int j=0;
+
+    while(i<m&&j<n)
+    {
+        if(a[i]<b[j])
+        {cout<<a[i]<<" ";
+          i++;
+
+        }
+        else if(a[i]>b[j]){
+            cout<<b[j]<<" ";
+            j++;
+        }else{
+
+        cout<<a[i]<<" ";
+        i++;
+        j++;
+        }
+
+
+
+        }
+
+        while(i<m)
+        {
+            cout<<a[i]<<" ";
+                i++;
+        }
+
+        while(j<n)
+        {
+            cout<<b[j]<<" ";
+            j++;
+        }
+
+
+}
+
+
+void intersection(int a[],int b[],int m,int n)
+{
+    int i=0;
+    int j=0;
+
+    while(i<m&&j<n)
+    {
+        if(a[i]<b[j])
+        {
+          i++;
+
+        }
+        else if(a[i]>b[j]){
+
+            j++;
+        }else{
+
+        cout<<a[i]<<" ";
+        i++;
+        j++;
+        }
+
+
+
+        }
+
+
+
+
+}
+
+
+
+int main()
+{   int m,n;
+cin>>m>>n;
+int a[m],b[n];
+cout<<"Array 1\n";
+for(int i=0;i<m;i++)
+{
+    cin>>a[i];
+}
+cout<<"Array2\n";
+
+for(int j=0;j<n;j++)
+{
+    cin>>b[j];
+}
+
+  cout<<"Union\n";
+  uniont(a,b,m,n);
+  cout<<"Intersection \n";
+  intersection(a,b,m,n);
+    return 0;
+}
